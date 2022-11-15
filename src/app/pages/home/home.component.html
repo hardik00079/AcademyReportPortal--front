@@ -1,0 +1,28 @@
+<br>
+<div class="card text-center mauve" id="card-container">
+    <div class="card-header">
+        <div *ngIf="!loggedIn">
+            <h2>Welcome to Academy Report Portal</h2>
+            <a class="btn form-button-color" routerLink="/login">Login</a>
+            <p>If you're not singed up yet</p>
+            <a class="btn form-button-color" routerLink="/register">Register</a>
+        </div>
+        <div *ngIf="loggedIn">
+            <h2>Welcome {{user.firstName}}</h2>
+             <div *ngIf="user.role=='Account Manager'">
+                <app-account-manager-home></app-account-manager-home>
+            </div>
+            <div *ngIf="user.role=='Trainee'">
+                <app-trainee-home></app-trainee-home>
+            </div>
+            <div *ngIf="user.role=='Instructor'">
+                <app-instructor-home></app-instructor-home>
+            </div>
+            
+        </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Academy Portal</h5>
+
+    </div>
+</div>

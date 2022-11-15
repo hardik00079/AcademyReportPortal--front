@@ -1,0 +1,47 @@
+<nav class="navbar nav-bar-background fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <!-- <img src={{fdmLogo}} alt={{logoAlt}} width="auto" height="70" class="d-inline-block align-text-center"> -->
+        <a routerLink="/home">Academy Report Portal</a>
+      </a>
+      <div *ngIf="!loggedIn">
+        <ul class="nav justify-content-center">
+  
+  
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+        </ul>
+      </div>
+        <div *ngIf="loggedIn">
+          <ul class="nav justify-content-center">
+  
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <div *ngIf="user.role=='Trainee'">
+                    <div><a class="nav-link" [routerLink]= "['/reports/id/', user.userId]">MyReport</a></div>
+                </div>
+                <div *ngIf="user.role=='Account Manager'">
+                    <a class="nav-link" routerLink="/home">Trainee Report</a>
+                </div>
+                <div *ngIf="user.role=='Instructor'">
+                    <a class="nav-link" routerLink="/home">Trainee</a>
+                </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+  
+    </div>
+  </nav>
+  

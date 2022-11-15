@@ -1,0 +1,27 @@
+<form id="login-form" #loginForm="ngForm" (ngSubmit)="login()">
+    <div class="mb-3" style="text-align: center; font-size: large;">
+        <label class="form-label">Sign In</label>
+        </div>
+        <hr style="border-top: 3px solid white">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Username" [(ngModel)]="username">
+        </div>
+        <hr >
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Password</label>
+            <input [type]=" showPassword ? 'text' : 'password' " class="form-control"  name="password" placeholder="Password" [(ngModel)]="password" >
+            <p><input type="checkbox" ng-model="showpassword" (click)='showHidePassword()' ng-checked="false"> Show password</p>
+        </div>
+        
+           
+        
+       
+        <button type="submit" class="btn form-button-color" value="Login">Login</button>
+        <hr>
+        <div class="mb-3">
+            <a href="#">Forgot your passord?</a>
+        </div>
+        <hr style="border-top: 3px solid white">
+</form>
+

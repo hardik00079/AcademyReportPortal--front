@@ -1,0 +1,47 @@
+<body>
+<form class="mauve" #registerForm = "ngForm" (ngSubmit)="register()">
+    <div class="mb-3" style="text-align: center;">
+    <label class="form-label" >Trainee Register</label>
+    </div>
+    <hr style="border-top: 3px solid white">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">First Name</label>
+        <input type="text" class="form-control" [(ngModel)]="firstName" name="first-name" req/>
+    
+    <hr >
+    
+        <label for="exampleInputEmail1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" [(ngModel)]="lastName" name="last-name" req/>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="text" class="form-control" [(ngModel)]="email" name="email" #fdmEmailNgModel="ngModel" appFdmEmail req/>
+        <p *ngIf="fdmEmailNgModel.errors?.['notFdmEmail']">Must be an FDM email</p>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" class="form-control" [(ngModel)]="username" name="username" req/>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Password</label>
+        <input type="password" class="form-control" [(ngModel)]="password" name="password" #passwordNgModel="ngModel" appPassword req/>
+        <p *ngIf="passwordNgModel.errors?.['badPassword']">Password Should be strong</p>
+    </div>
+    <!-- <div *ngIf="!passwordNgModel.errors?.['badPassword'] && !fdmEmailNgModel.errors?.['notFdmEmail']"> -->
+    <button type="submit" value="Register" class="btn form-button-color" >Register</button>
+     <!-- </div>    -->
+    <!-- <hr style="border-top: 3px solid white"> -->
+    <!-- <hr> -->
+    <!-- <div class="mb-3">
+        <a href="#">Forgot your passord?</a>
+    </div>
+    <hr style="border-top: 3px solid white"> -->
+    <!-- <div class="mb-3">
+        <label class="form-label">
+            New User
+        </label>
+    </div>
+    <button type="button" class="btn form-button-color">Register</button> -->
+</form>
+</body>
+

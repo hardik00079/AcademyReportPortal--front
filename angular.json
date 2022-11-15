@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Front-FDMAcademyReport": {
+    "Front-AcademyReport": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -64,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Front-FDMAcademyReport:build:production"
+              "browserTarget": "Front-AcademyReport:build:production"
             },
             "development": {
-              "browserTarget": "Front-FDMAcademyReport:build:development"
+              "browserTarget": "Front-AcademyReport:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Front-FDMAcademyReport:build"
+            "browserTarget": "Front-AcademyReport:build"
           }
         },
         "test": {
@@ -90,6 +91,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []

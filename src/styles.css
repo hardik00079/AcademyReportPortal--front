@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+a {
+    color:white;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("E:\Spring Project\Front-AcademyReport\src\assets\images\hexa.png"); 
+  background-size: 350px;
+}
+

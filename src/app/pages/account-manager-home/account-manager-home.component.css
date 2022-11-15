@@ -1,0 +1,44 @@
+table {
+    border-collapse: collapse;
+    text-align:center;
+      margin-left:auto;
+      margin-right:auto;
+      width:100px;
+  
+  }
+  
+  th, td {
+    padding: 8px;
+    white-space:nowrap
+  }
+  
+  tr:nth-child(even) {
+    background: #434344;
+  
+  }
+
+  
+  .buttonsty {
+    background: #343434;
+    color: #F7FFF7
+  }
+  
+  .btn1 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    cursor: pointer;
+    
+  }
+  
+  
+  .buttonsty a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .buttonsty a:hover {background-color: #111;}

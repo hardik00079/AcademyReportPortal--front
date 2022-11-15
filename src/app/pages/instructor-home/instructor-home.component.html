@@ -1,0 +1,58 @@
+<div *ngIf="loggedIn">
+   
+    <div class="instructor-container">
+        
+        
+        <hr >
+        <h2>My Profile</h2>
+        <div class="'card-container">
+            <hr>  
+            <table>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Userame</th>
+                  <th>Eamil</th>
+                  <th>Role</th>
+                </tr>
+                <tr>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.role}}</td>
+                
+                </tr>
+            </table>   
+        </div>    
+        <hr >
+        <h2>Trainees Report Request</h2>
+        <div class="'card-container">
+            <hr>  
+            <table>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Userame</th>
+                  <th>Eamil</th>
+                  <th>Role</th>
+                  <th>Assignee</th>
+                  <th>Create Report</th>
+                </tr>
+                <tr *ngFor="let trainee of trainees">
+                <td>{{trainee.firstName}}</td>
+                <td>{{trainee.lastName}}</td>
+                <td>{{trainee.username}}</td>
+                <td>{{trainee.email}}</td>
+                <td>{{trainee.role}}</td>
+                <td>{{trainee.assignee?.firstName}}&nbsp;{{trainee.assignee?.lastName}}</td>
+                <td>
+                    <div class = "buttonsty"><a class = "btn1" [routerLink]="['/trainees/id/',trainee.userId]">Generate</a></div>
+                    
+                </td>
+                </tr>
+            </table>   
+        </div>        
+        
+    </div>
+</div>

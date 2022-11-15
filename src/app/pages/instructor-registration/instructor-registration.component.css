@@ -1,0 +1,15 @@
+.form-button-color{
+    background-color: #080808;
+    color: white;
+  }
+  
+  .mauve{
+    background: #434344;
+    color: white;
+  
+  }
+  .btn:hover, button:hover{
+    background: #090941;
+    cursor: pointer;
+  }
+  

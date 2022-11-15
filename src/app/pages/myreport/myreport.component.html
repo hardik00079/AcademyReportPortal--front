@@ -1,0 +1,37 @@
+<div class="card text-center mauve" id="card-container">
+<div class="report-container">
+        
+    <div id = reportPdf #reportPdf>  
+        <hr >
+        <h2 style = "text-align: center;">My Reports</h2>
+        <div class="card-container" >
+            <hr>  
+            <table>
+                <thead>
+                <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>CreatedBy</th>
+                
+                </tr>
+                </thead>
+                <tbody >
+                <ng-container *ngFor="let report of reports">   
+                <tr *ngIf = "report.visable == true">
+                    
+                    <td>{{report.name}}</td>
+                    <td>{{report.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{report.description}}</td>
+                    <td>{{report.instructor?.firstName}}&nbsp;{{report.instructor?.lastName}}</td>
+                </tr>
+                </ng-container>
+            </tbody>
+            </table>  
+            <hr>
+            <button class="btn form-button-color" (click)="generatePDF()">Export To PDF</button>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>        

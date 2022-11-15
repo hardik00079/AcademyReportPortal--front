@@ -1,0 +1,105 @@
+<div class="card text-center mauve" id="card-container">
+<div class="instructor-container">
+        
+    <div id = reportPdf #reportPdf>     
+    <hr >
+    <h2 style = "text-align: center;">Trainee Profile</h2>
+    <div class="'card-container">
+        <hr>  
+        <table>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Userame</th>
+              <th>Eamil</th>
+              <th>Role</th>
+              <th *ngIf ="user.role == 'Account Manager'">Assign Report to </th>
+              <th *ngIf ="user.role == 'Account Manager'">Instructor</th>
+            </tr>
+            <tr>
+            <td>{{trainees.firstName}}</td>
+            <td>{{trainees.lastName}}</td>
+            <td>{{trainees.username}}</td>
+            <td>{{trainees.email}}</td>
+            <td>{{trainees.role}}</td>
+            <td *ngIf ="user.role == 'Account Manager'"><input type = "text" [(ngModel)]="aId" placeholder="Email Address" list="instructorslist"  />
+                <datalist id="instructorslist"><option *ngFor="let instructor of instructors" value="{{instructor.userId}}">{{instructor.email}}</option></datalist>
+                
+              </td>
+              <td *ngIf ="user.role == 'Account Manager'"><div class = "buttonsty"><a class = "btn1" (click)="assign()">Assign</a></div></td>
+              
+            </tr>
+            
+        </table>   
+    </div> 
+     
+    <hr >
+    <h2 style = "text-align: center;">Trainee Past Reports</h2>
+    <div class="card-container" >
+        <hr>  
+        <table>
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Description</th>
+              <th>CreatedBy</th>
+              <th>Visable to Trainee</th>
+              
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let report of reports">
+                <td>{{report.name}}</td>
+                <td>{{report.dateCreated | date:'mediumDate' }}</td>
+                <td>{{report.description}}</td>
+                <td>{{report.instructor?.firstName}}&nbsp;{{report.instructor?.lastName}}</td>
+                <td>{{report.visable}}</td>
+                <td >
+                  <div class = "buttonsty"><a class = "btn1" (click)="delete(report.id, report.name)">Delete</a></div>
+        
+                </td>
+                <td>
+            </tr>
+        </tbody>
+        </table>  
+        <hr>
+        <button class="btn form-button-color" (click)="generatePDF()">Export To PDF</button>
+        <hr>
+    </div>
+    </div>    
+    <div *ngIf ="user.role == 'Instructor'"  class="container">
+
+        <form class="mauve" style="width: 600px; height: 500px; text-align: center; justify-content: center ;
+       margin-top: 30px; margin-bottom: 120px; padding-left: 10px; padding-right: 10px;padding-top: 10px; padding-bottom: 10px;" #addPollForm = "ngForm" (ngSubmit)="generate()">
+          <div class="mb-3">
+          <label class="form-label" style="justify-content: center;"><h1>Create a New Report</h1></label>
+          </div>
+          <hr style="border-top: 3px solid white">
+          <div class="mb-3">
+            <label for="name">Name:</label>
+            <input type="text" [(ngModel)]="name" name="name" req><br>
+          </div>
+          <hr >
+          
+          <div class="mb-3">
+            <p class="formfield"> 
+            <label for="category" >Description:</label>
+            <textarea name = "description" [(ngModel)]="description" name="description" rows="4" cols="50" req></textarea><br>
+          </p>
+          </div>
+          <hr >
+          <div class="mb-3">
+            <label for="publishDate">Created Date:</label>
+            <input type="date" [(ngModel)]="date" name="date" req><br>
+            <p><input type="checkbox" ng-model="visable" (click)='visablereport()'  ng-checked="false"> Visible to Trainee</p>
+          </div>
+          <hr >
+        
+          <button type="submit" class="btn form-button-color" value="Create Poll">Create Report</button>
+          
+      </form>
+      </div>
+    
+</div>
+</div>
